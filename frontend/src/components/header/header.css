@@ -1,0 +1,320 @@
+/* General reset and styles */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    /* Stack elements vertically */
+    background-color: #F0F0FD;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+.content-wrap {
+    flex: 1;
+    /* Flex container for main content to push the footer down */
+    overflow-y: auto;
+    /* Allow scroll on content */
+    padding-top: 50px;
+    /* Replace with the actual height of your header */
+}
+
+/* Header styles */
+.navbar {
+    /* position: fixed; */
+    /* margin-bottom: 40px; */
+    width: 100%;
+    /* Full width */
+    top: 0;
+    /* Stick to the top */
+    z-index: 100;
+    /* Ensure it's above other content */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F0F0FD;
+    padding: 10px 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    color: #0000ff;
+    /* Adjust the color to match your logo */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    margin-right: 20px;
+}
+
+.nav-link-special {
+    margin-right: 20px;
+    position: relative;
+    /* Necessary for positioning the pseudo-element */
+    transition: color 0.3s ease;
+    /* Transition for color */
+}
+
+.nav-link-special::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    /* Width of the underline */
+    height: 1px;
+    /* Thickness of the underline */
+    bottom: -5px;
+    /* Distance between text and underline */
+    left: 50%;
+    /* Center the line */
+    background-color: #243642;
+    /* Color of the underline */
+    transform: translateX(-50%) scaleX(0);
+    transition: transform 0.3s ease;
+    /* Transition for the underline effect */
+}
+
+.nav-link-special:hover::after {
+    transform: translateX(-50%) scaleX(1);
+    /* Show the line on hover */
+}
+
+.nav-link-special:hover {
+    color: #243642;
+    /* New text color on hover */
+}
+
+
+.login-btn {
+    padding: 10px 20px;
+    color: #ffff;
+    background-color: #243642;
+    /* Adjust the background color to match your design */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #333;
+    color: #ffff;
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: #333;
+    padding: 0 20px 0 0;
+    border: none;
+    cursor: pointer;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    /*margin-top: 2px;*/
+}
+
+/* Add a background color to dropdown links on hover */
+/* Add a background color to dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #243642;
+    color: #FFFFFF;
+}
+
+/* ... Your existing styles ... */
+
+/* Unique stylings for the dropdown */
+.dropdown-content {
+    background-color: #243642;
+    /* Dark background color */
+    color: #FFFFFF;
+    /* Text color */
+    min-width: 200px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px;
+    border-radius: 8px;
+    opacity: 0;
+    /* Initially invisible */
+    transform-origin: top center;
+    transform: scaleY(0);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.dropdown:hover .dropdown-content {
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+.dropdown-content a {
+    padding: 12px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #F0F0FD;
+    /* Light background on hover */
+    color: #243642;
+    /* Dark text color on hover */
+}
+
+/* ... Your existing styles ... */
+
+
+/* Media query for responsive design */
+@media screen and (max-width: 600px) {
+    /* ... Your existing responsive styles ... */
+
+    /* Adjust styles for responsive dropdown */
+    .dropdown-content {
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: flex;
+        flex-direction: column;
+        position: static;
+        width: 100%;
+    }
+
+    .dropdown-content a {
+        width: 100%;
+    }
+}
+
+
+
+/* Footer styles */
+.footer {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    /*position: fixed;*/
+    width: 100%;
+    /* Full width */
+    /*bottom: 0; !* Stick to the bottom *!*/
+    z-index: 100;
+    /* Ensure it's above other content */
+}
+
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.footer-column h4 {
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.footer-column ul {
+    list-style-type: none;
+}
+
+.social {
+    display: flex;
+    /* Aligns children inline */
+    justify-content: space-between;
+    /* Distributes space between the icons */
+    align-items: center;
+    /* Centers children vertically */
+    /* Set a specific width if you want to control the spacing amount, e.g., 100% to spread across the container */
+    width: 100%;
+}
+
+.social a {
+    margin-right: 10px;
+    /* Adds space to the right of each icon */
+}
+
+.social a:last-child {
+    margin-right: 0;
+    /* Ensures the last icon doesn't have extra space on the right */
+}
+
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer-column ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom-container {
+    width: 100%;
+    /* Full width */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    text-decoration: none;
+    color: #0066cc;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column {
+        margin-bottom: 20px;
+    }
+
+    .footer-bottom-container {
+        order: 99;
+        /* Ensures it's always at the bottom */
+    }
+}

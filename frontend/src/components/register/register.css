@@ -1,0 +1,364 @@
+/* General reset and styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    background-color: #F0F0FD;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+.content-wrap {
+    flex: 1; /* Flex container for main content to push the footer down */
+    overflow-y: auto; /* Allow scroll on content */
+    padding-top: 50px; /* Replace with the actual height of your header */
+}
+
+/* Header styles */
+.navbar {
+    position: fixed;
+    width: 100%; /* Full width */
+    top: 0; /* Stick to the top */
+    z-index: 100; /* Ensure it's above other content */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F0F0FD;
+    padding: 10px 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    color: #0000ff; /* Adjust the color to match your logo */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    margin-right: 20px;
+}
+
+.login-btn {
+    padding: 10px 20px;
+    color: #ffff;
+    background-color: #243642; /* Adjust the background color to match your design */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #333;
+    color: #ffff;
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: #333;
+    padding: 0 15px 0 0;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #F0F0FD;
+    min-width: 200px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Add a background color to dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #243642;
+    color: #FFFFFF;
+}
+
+/* Add a hover effect to the logo if needed */
+.logo:hover {
+    color: #666;
+}
+
+/* Media query for responsive design */
+@media screen and (max-width: 600px) {
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+    }
+    .nav-links a {
+        margin: 5px 0;
+    }
+}
+
+.hero-container {
+    background: #F0F0FD;
+    padding: 20px;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Aligns children to the right */
+    margin-left: 10%;
+}
+
+.hero-content .h1 .p {
+    text-align: right;
+    flex: 3;
+    display: flex;
+    justify-content: flex-end; /* This will horizontally center the .search-box */
+    flex-direction: column; /* Stack children vertically */
+    /*align-items: center; !* This will also horizontally center the .search-box *!*/
+    width: 100%; /* Ensures .hero-content takes full width of its parent, adjust if necessary */
+}
+
+.hero-content2 {
+    /*background-image: url('../../public/media/image 14.png'); !* Replace with your image's filename *!*/
+    /*background-size: cover;*/
+    /* Add the following if you want to ensure the content is vertically and horizontally centered */
+    flex: 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.tagline {
+    display: flex; /* Aligns children inline */
+    align-items: center; /* Centers children vertically */
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 5px;
+    background: none;
+    width: 25%;
+    border-radius: 20px;
+    border-style: solid; /* You need to specify a border style */
+    border-width: 1px; /* And a border width */
+    border-color: #0D0D0C; /* Now the border color will be visible */
+}
+
+.health-matters {
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-right: 5px; /* Adds spacing between the text and the image */
+}
+
+.dna img {
+    width: 30px;     /* Sets the width of the DNA image */
+    height: auto; /* Keeps the image aspect ratio */
+}
+
+h1 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.search-box {
+    display: flex; /* Use flexbox to align children */
+    align-items: center; /* Align children vertically */
+    justify-content: space-between; /* Distribute space between children */
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    width: 90%;
+    padding-right: 10px; /* Give some space on the right */
+    background-color: #fff; /* Optional: set the background color */
+}
+
+input[type="text"] {
+    flex-grow: 1; /* Let the input grow to fill space */
+    padding: 10px;
+    border: none; /* Remove border as the parent has one */
+    border-radius: 20px 0 0 20px; /* Only rounded corners on the left */
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    width: 30px; /* Reduced width of the button */
+    padding: 5px; /* Adjust padding if needed to center the image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Add responsive design as necessary */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+    }
+
+    input[type="text"] {
+        width: calc(100% - 20px); /* Adjust width for mobile */
+    }
+}
+
+
+/* Footer styles */
+.footer {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    /*position: fixed;*/
+    width: 100%; /* Full width */
+    /*bottom: 0; !* Stick to the bottom *!*/
+    z-index: 100; /* Ensure it's above other content */
+}
+
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.footer-column h4 {
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.footer-column ul {
+    list-style-type: none;
+}
+
+.social {
+    display: flex; /* Aligns children inline */
+    justify-content: space-between; /* Distributes space between the icons */
+    align-items: center; /* Centers children vertically */
+    /* Set a specific width if you want to control the spacing amount, e.g., 100% to spread across the container */
+    width: 100%;
+}
+
+.social a {
+    margin-right: 10px; /* Adds space to the right of each icon */
+}
+
+.social a:last-child {
+    margin-right: 0; /* Ensures the last icon doesn't have extra space on the right */
+}
+
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer-column ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom-container {
+    width: 100%; /* Full width */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    text-decoration: none;
+    color: #0066cc;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-column {
+        margin-bottom: 20px;
+    }
+    .footer-bottom-container {
+        order: 99; /* Ensures it's always at the bottom */
+    }
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+.header {
+    background-color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+.register-form {
+    width: 35%;
+    float: right;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.form-control {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+.btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #5cb85c;
+    color: white;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #4cae4c;
+}
+/* Add more styles as needed */
